@@ -1,6 +1,6 @@
 # Merge Sort
 
-def merge_sort(list_of_data, start_index, mid_index):
+def merge_sort(list_of_data: list, start_index: int, mid_index: int) -> list:
     """
     An implementation of Merge Sort
     
@@ -20,14 +20,14 @@ def merge_sort(list_of_data, start_index, mid_index):
         in ascending numerical order.
     """
     # Split the data list into halves.
-    lhs = list_of_data[start_index:mid_index+1]
-    rhs = list_of_data[mid_index+1:]
+    lhs: list = list_of_data[start_index:mid_index+1]
+    rhs: list = list_of_data[mid_index+1:]
     print(lhs, rhs, end=", ")
 
     # Give default values to the result of merge-sorting the halves
     # in case they are too short to be sorted.
-    lhs_out = lhs
-    rhs_out = rhs
+    lhs_out: list = lhs
+    rhs_out: list = rhs
 
     # Merge-sort the halves, if they have enough elements.
     if len(lhs) > 1:
@@ -36,7 +36,7 @@ def merge_sort(list_of_data, start_index, mid_index):
         rhs_out = merge_sort(rhs, 0, int(len(rhs)/2)-1)
 
     # Create a blank output.
-    output = []
+    output: list = []
 
     # Whilst either of the sorted halves have values
     while (len(lhs_out) > 0 or len(rhs_out) > 0):
@@ -61,7 +61,7 @@ if __name__ == "__main__":
     print("Merge Sort")
 
     #        0, 1, 2, 3,  4,  5,  6, 7
-    data = [42, 9, 8, 1, 12, 40, 32, 2]
+    data: list = [42, 9, 8, 1, 12, 40, 32, 2]
     print(data)
 
     print(merge_sort(data, 0, 3))
